@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class InputOutputSeparator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Take input from user
+     
+        int num1 = scanner.nextInt();
+       
+        int num2 = scanner.nextInt();
+
+        // Check if inputs are positive
+        if (num1 >= 0 && num2 >= 0) {
+            // Display values separated by '-'
+            System.out.println(num1 + "-" + num2);
+        } else {
+            // Display "Invalid Input" message
+            System.out.println("Invalid Input");
+        }
+
+        scanner.close();
+    }
+} 
