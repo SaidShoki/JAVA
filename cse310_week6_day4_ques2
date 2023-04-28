@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the first array
+        int size1 = scanner.nextInt();
+        int[] arr1 = new int[size1];
+        for (int i = 0; i < size1; i++) {
+            arr1[i] = scanner.nextInt();
+        }
+
+        // Read the second array
+        int size2 = scanner.nextInt();
+        int[] arr2 = new int[size2];
+        for (int i = 0; i < size2; i++) {
+            arr2[i] = scanner.nextInt();
+        }
+
+        // Read the third array
+        int size3 = scanner.nextInt();
+        int[] arr3 = new int[size3];
+        for (int i = 0; i < size3; i++) {
+            arr3[i] = scanner.nextInt();
+        }
+
+        // Sort the arrays
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        Arrays.sort(arr3);
+
+        // Find common elements in the arrays
+        int i = 0, j = 0, k = 0;
+        List<Integer> commonElements = new ArrayList<Integer>();
+        while (i < size1 && j < size2 && k < size3) {
+            if (arr1[i] == arr2[j] && arr2[j] == arr3[k]) {
+                commonElements.add(arr1[i]);
+                i++;
+                j++;
+                k++;
+            } else if (arr1[i] < arr2[j]) {
+                i++;
+            } else if (arr2[j] < arr3[k]) {
+                j++;
+            } else {
+                k++;
+            }
+        }
+
+        // Print the common elements in ascending order
+        Collections.sort(commonElements);
+        for (int element : commonElements) {
+            System.out.print(element + " ");
+        }
+    }
+} 
