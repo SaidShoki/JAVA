@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int registrationNo;
+
+    public void show() {
+        System.out.println(name + "," + registrationNo);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Student s = new Student();
+        int choice;
+
+        do {
+            System.out.println("Enter your choice:");
+            System.out.println("1. Enter Student Details");
+            System.out.println("2. Display Default Values");
+            System.out.println("3. Exit");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter name: ");
+                    s.name = sc.next();
+
+                    do {
+                        System.out.print("Enter registration no.: ");
+                        s.registrationNo = sc.nextInt();
+
+                        if (s.registrationNo < 0) {
+                            System.out.println("Registration no. should be positive.");
+                        }
+                    } while (s.registrationNo < 0);
+
+                    s.show();
+                    break;
+
+                case 2:
+                    s.show();
+                    break;
+
+                case 3:
+                    System.out.println("Exiting Program...");
+                    break;
+
+                default:
+                    System.out.println("Wrong Choice");
+            }
+
+        } while (choice != 3);
+
+        sc.close();
+    }
+} 
