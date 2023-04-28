@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        if (n <= 0) {
+            System.out.println("Invalid");
+            return;
+        }
+        String[] array = scanner.nextLine().split(" ");
+        int countIntegers = 0;
+        int countAlphabets = 0;
+        for (String str : array) {
+            if (isInteger(str)) {
+                countIntegers++;
+            } else if (isAlphabet(str)) {
+                countAlphabets++;
+            }
+        }
+        System.out.println(countIntegers);
+        System.out.println(countAlphabets);
+    }
+    
+    public static boolean isInteger(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    
+    public static boolean isAlphabet(String str) {
+        for (char ch : str.toCharArray()) {
+            if (!Character.isAlphabetic(ch)) {
+                return false;
+            }
+        }
+        return true;
+    }
+} 
