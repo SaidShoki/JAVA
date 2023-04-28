@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Student {
+    private String name;
+
+    public Student(String name) {
+        if (name.matches("[a-zA-Z]+")) {
+            this.name = name;
+        } else {
+            this.name = "Unknown";
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Create a Student object with name input
+        Student s1 = new Student(sc.nextLine());
+        System.out.println(s1.getName());
+
+        // Create a Student object with non-name input
+        Student s2 = new Student(sc.nextLine());
+        System.out.println(s2.getName());
+
+        sc.close();
+    }
+} 
