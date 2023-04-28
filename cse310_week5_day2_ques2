@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input employee ID
+        int empId = sc.nextInt();
+
+        // Input employee name
+        sc.nextLine(); // consume the newline character left by previous nextInt()
+        String empName = sc.nextLine();
+
+        // Input employee designation
+        String empDesignation = sc.nextLine();
+
+        int salary = 20000; // basic salary
+
+        // Check if employee is eligible for appraisal
+        if (empId > 201) {
+            salary += 1000; // add appraisal amount
+        } else {
+            System.out.println("No Appraisal"); // print message and return
+            return;
+        }
+
+        // Print employee details and salary
+        System.out.println(empName);
+        System.out.println(empId);
+        System.out.println(salary);
+    }
+} 
